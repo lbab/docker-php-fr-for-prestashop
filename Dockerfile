@@ -1,4 +1,4 @@
-FROM shafan/php5_apache_with_french_locale
+FROM shafan/php5_apache_with_french_locale:1.0
 
 # install the PHP extensions we need
 RUN apt-get update && apt-get install -y libmcrypt-dev libpng12-dev libjpeg-dev \
@@ -9,6 +9,6 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
 RUN docker-php-ext-install pdo pdo_mysql mcrypt gd mbstring
 
 RUN pecl install memcache
-COPY ext-memcache.ini /usr/local/etc/php/conf.d/
+ADD ./ext-memcache.ini /usr/local/etc/php/conf.d/
 
 CMD ["apache2-foreground"]
