@@ -1,4 +1,4 @@
-FROM shafan/php5_apache_with_french_locale:1.0
+FROM shafan/php5_apache_with_french_locale:1.1
 
 # install the PHP extensions we need
 RUN apt-get update && apt-get install -y libmcrypt-dev libpng12-dev libjpeg-dev \
